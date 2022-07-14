@@ -2,13 +2,14 @@ import { BrowserRouter as Router, Route, Routes,Navigate } from "react-router-do
 import RequireAuth from './components/RequireAuth';
 // import  UserContext from './context/UserContext';
 // import { useState } from "react";
-
+import Subscription from "./components/subcription/Subscription"
 //page & layout import
 import Homepage from "./pages/Homepage";
 import ReviewDetails from "./pages/ReviewDetails";
 import Category from "./pages/Category";
 import SiteHeader from "./components/SiteHeader"
 import Login from './pages/Login'
+
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
               <Route path="/category/:id" element={<Category />} />
             </Route>
+            <Route path="/subscribe" element={<Subscription />}/>
 
           </Routes>
         {/* </UserContext> */}

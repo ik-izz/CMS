@@ -1,0 +1,25 @@
+
+.card{
+  
+    width: 300px;
+    padding: 1rem;
+    transition: all .5s ease-in-out;
+    margin:1rem;
+}
+
+.card:hover{
+    transform: scale(1.12);
+    z-index: 100;
+    background-color: rgb(94, 94, 18);
+    color: white;
+    transition: all .5s ease-in-out;
+
+}
+
+span{
+    font-size: 3rem;
+}
+i{
+    color: rgb(94, 195, 94);
+}
+
