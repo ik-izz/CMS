@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../static/logo.png'
 import {useCookies} from 'react-cookie';
+import './siteheader.css'
 
 export default function SiteHeader() {
   const [cookies, setCookie, removeCookie] = useCookies(['token'])
@@ -14,21 +15,21 @@ export default function SiteHeader() {
 
   }
   return (
-    <div className="site-header">
-      <div className='logoContainer'>
-        <div className='logo'>
-          <img 
-
-          src={Logo}
-          />
-        </div>
+    <nav className="top-header navbar-dark bg-dark">
+     
+     <div class="container-fluid">
+      <Link class="navbar-brand" to='/homepage'>
+      <img src={Logo} alt="" width="30" height="24" class="d-inline-block align-text-top" />
+      Vngle
+    </Link>
     </div>
     
-    <div className='login-container'>
-      <Link to="/homepage"><h1>Stories</h1></Link>
-      <Link to='/'><h3>Login</h3></Link>
-      <Link to='/' onClick={handleRemoveCookie}><h3>Logout</h3></Link>
+      <div className="menu-links">
+      <Link to="/homepage" className="">Stories</Link>
+      <Link to='/' className="">Login</Link>
+      <Link to='/' className="" onClick={handleRemoveCookie}>Logout</Link>
+    
     </div>  
-    </div>
+    </nav>
   )
 }

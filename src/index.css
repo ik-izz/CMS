@@ -17,6 +17,31 @@ h1,h2,h3,h4 {
   padding: 20px;
   box-sizing: border-box;
 }
+
+.btn-1 {
+  color: #000;
+}
+
+.btn-1::after, .btn-1::before{
+  border: 3px solid #000;
+  content: "";
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% -6px);
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.btn-1:hover::after {
+  transform: translate(-5px, -5px)
+}
+
+.btn-1:hover::before {
+  transform: translate(5px, 5px)
+}
+
 a {
 
   color: #ffcc35;
@@ -28,10 +53,7 @@ a {
   padding-bottom: 10px;
   border-bottom: 2px solid;
 }
-.site-header h1{
-  font-size: 1.5em;
-  color: #ffcc35;
-}
+
 .logoContainer{
   width: 25%;
   display: flex;
@@ -39,12 +61,23 @@ a {
   align-items: center;
 }
 .login-container{
-  width: 25%;
+  height: 100%;
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: center;
 }
 .login-container > *{
   margin-left: 1.5rem;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+.btn{
+  text-decoration: none;
+  padding: 10px 40px;
+  font-size: 1.25rem;
+  position: relative;
 }
 .logo img{
   height: auto;
@@ -58,6 +91,8 @@ a {
   padding: 1px 20px 20px 90px;
   position: relative;
   border: solid 2px #ffcc35;
+  width: 30rem;
+  height: 35rem;
   
 }
 .story-card a{
@@ -76,6 +111,7 @@ a {
   color: white;
 }
 .story-card h2 {
+  
   margin-bottom: 0;
 }
 .story-card small {
@@ -91,6 +127,7 @@ a {
   align-items: center;
   justify-content: center;
   overflow: auto;
+  object-fit: contain;
   margin-bottom: 10px;
   background-color: #d1cecef1;
 }
@@ -104,7 +141,7 @@ a {
   height: 14rem;
   box-shadow: 5px 5px 20px black;
   margin: 30px 30px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .download-icon{
   top: 40px;

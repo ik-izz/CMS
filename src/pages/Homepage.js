@@ -10,7 +10,23 @@ export default function Homepage() {
 
   // console.log(data.data[0].attributes.media.data[0].attributes.formats.thumbnail.url)
   return (
+    
     <div>
+      <header class="header" id="header">
+        <nav class="navbar container"> 
+
+        
+
+        </nav>
+        
+      </header>
+
+
+      
+
+
+
+      
       {data.data.map( (story, index) => (
         <div key={story.id} className="story-card">
 
@@ -54,6 +70,7 @@ export default function Homepage() {
           {/* <img src={`http://localhost:1337${data.data[index].attributes.media.data[0].attributes.url}`}/> */}
         </div>
       ))}
+      
     </div>
 
   )

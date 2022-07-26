@@ -34,9 +34,8 @@ const SignIn = () => {
         //FIXME!!! need to set access based on roles
         const roles = response?.data?.roles;
 
-        
-        console.log(cookies);
-        setCookie( 'token', token, {path:'/', maxAge: 120} );
+        setCookie( 'token', token, {path:'/', maxAge: 6000} );
+
         setAuth({ token, roles, cookies});
 
         //upon successful login it navigates user to page they came from,
@@ -48,8 +47,11 @@ const SignIn = () => {
       window.alert( error.response.data.error.message)
       console.log('an error occurred:', error)
     })
+    // const { status, error, data } = useVerify('http://localhost:1337/api/reviews',cookies?.token)
+    // console.log(status)
   }
 
+  // setAuth({status})
   return (
     <div className='form-container'>
 

@@ -16,11 +16,12 @@ function App() {
           <SiteHeader />
           <Routes>
             <Route path="/" element={<Login />} />
-
-              <Route element={<RequireAuth/>}>
-                <Route path="/homepage" element={<Homepage />} />
+            <Route path="/homepage" element={<Homepage />} />
 
                 <Route path="/details/:id" element={<ReviewDetails />} />
+
+              <Route element={<RequireAuth/>}>
+                
 
               </Route>
           </Routes>
