@@ -22,12 +22,15 @@ export default function SiteHeader() {
       <img src={Logo} alt="" width="30" height="24" class="d-inline-block align-text-top" />
       Vngle
     </Link>
+    
     </div>
     
+    
       <div className="menu-links">
-      <Link to="/homepage" className="">Stories</Link>
+      <Link to="/homepage" className="btn-1">Stories</Link>
       <Link to='/' className="">Login</Link>
       <Link to='/' className="" onClick={handleRemoveCookie}>Logout</Link>
+      
     
     </div>  
     </nav>
