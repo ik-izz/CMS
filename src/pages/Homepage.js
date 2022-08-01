@@ -1,6 +1,7 @@
 import React from "react";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
+import Header from "../components/header/Header";
 
 export default function Homepage() {
   const { loading, error, data } = useFetch(
@@ -27,7 +28,13 @@ export default function Homepage() {
           deeper more intimate insights on the areas around us
         </p>
       </div>
+      <h3 className="trends-text">Trends</h3>
+      <div className=""> <Header>
+
+        </Header>
+        </div>
       <hr />
+      
       <div className="story-window">
 
         <div className="story-list">
