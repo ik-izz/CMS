@@ -3,35 +3,30 @@ import { useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import axios from 'axios'
 import fileDownload from 'js-file-download'
+import {generateZip, generateZipFromCloud} from '../components/GenerateZip';
 
 import Download from '../static/download.png'
+
+export const zipUrl = []
 
 export default function Category() {
   const {id} = useParams() ;
   const {loading, error, data} = useFetch(`http://localhost:1337/api/reviews/${id}?populate=media`);
 
+
   if (loading) return <p>Loading...</p>
 
   const handleclick = (url, media) => {
+    console.log(url)
     axios.get(url, {
       responseType: 'blob',
     })
     .then((response) => {
+
       fileDownload(response.data, media)
     })
   }
 
-  // const checkVid = (ext) => {
-
-  //   if(ext.mime == ('video/mp4' || 'video/webm'))
-  //     {  
-  //     return true}
-  //   else 
-  //   {console.log(ext.mime)
-  //   return }
-  // }
-
-  // console.log(data.data.attributes.media)
   return (
     <div  className="story-card">
           <div className="rating">{data.data.id}</div>
@@ -41,6 +36,19 @@ export default function Category() {
 
           <div className='img-wrapper'>
             {data.data.attributes.media.data.map( (img, index) => {
+              
+              img.attributes.ext == '.mp4'
+                  ?
+                    zipUrl.push(`http://localhost:1337${img.attributes.url}`)
+                  :
+                  img.attributes.ext == '.webm'
+                  ?
+                    zipUrl.push(`http://localhost:1337${img.attributes.url}`)
+                  :
+                    zipUrl.push(`http://localhost:1337${img.attributes.formats.thumbnail.url}`);
+                  
+              
+              // console.log(zipUrl)
               // console.log(img.attributes.mime)
               return(
                 <div className='img-container' key={img.id}>
@@ -93,10 +101,11 @@ export default function Category() {
           <div className='button-container'>
             <button 
               className='download'
-              onClick={() => 
-                {handleclick
-                  (`http://localhost:1337${data.data.attributes.media.data[0].attributes.formats.thumbnail.url}`,
-                   "media.jpg")}}
+              // onClick={() => 
+              //   {handleclick
+              //     (`http://localhost:1337${data.data.attributes.media.data[0].attributes.formats.thumbnail.url}`,
+              //      "media.jpg")}}
+              onClick={generateZipFromCloud}
               >Dowload Media
             </button>
           </div>
