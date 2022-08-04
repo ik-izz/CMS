@@ -6,6 +6,7 @@ import Header from "../components/header/Header";
 import Carousel from 'react-bootstrap/Carousel';
 import Logo from '../static/logo.png';
 import { Container } from 'react-bootstrap';
+import Style from '../static/Styles/homepage.css'
 
 
 export default function Homepage() {

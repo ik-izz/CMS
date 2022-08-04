@@ -5,6 +5,7 @@ import {useCookies} from 'react-cookie';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Style from './Styles/SiteHeader.css'
 
 export default function SiteHeader() {
   const [cookies, setCookie, removeCookie] = useCookies(['token'])

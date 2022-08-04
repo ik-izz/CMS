@@ -3,6 +3,7 @@ import React, { useState} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 import {useCookies} from 'react-cookie';
+import Style from './Styles/LoginForm.css'
 
 import Logo from '../static/logo.png'
 
