@@ -5,8 +5,8 @@ import { useCookies } from 'react-cookie'
 import Header from "../components/header/Header";
 import Carousel from 'react-bootstrap/Carousel';
 import Logo from '../static/logo.png';
-import { Container } from 'react-bootstrap';
-import Style from '../static/Styles/homepage.css'
+import { Container, Row } from 'react-bootstrap';
+import styles  from '../static/Styles/homepage.module.css'
 
 
 export default function Homepage() {
@@ -20,13 +20,15 @@ export default function Homepage() {
   console.log(data)
   return (
     <div>
-      
-      <Carousel className='carousel'>
+      <Header/>
+
+    <div className='d-flex justify-content-center'>
+      <Carousel className='carousel w-50 justify-content-center'>
       {data.data.map( (story, index) => (
       <Carousel.Item key={story.id}>
         <img
           className="d-block w-100"
-          src={story.attributes.Media.data[index].attributes.url}
+          src={story.attributes.Media.data[1].attributes.url}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -38,32 +40,33 @@ export default function Homepage() {
       </Carousel.Item>
       ))}
       </Carousel>
+      </div>
 
-      <Header/>
-
+      <div className={styles.storyContainer}>
       {data.data.map( (story, index) => (
-        <div key={story.id} className="story-card">
+        
+        <div key={story.id} className={styles.storyCard}>
           {/* <img className='img-background' src={story.attributes.Media.data[0].attributes.url}/> */}
           {/* <div className="rating">{story.id}</div> */}
           <h2>{story.attributes.Title}</h2>
           <small>published: {story.attributes.Date}</small>
           <p>{story.attributes.Description.substring(0, 200)}...</p>
           
-          <div className='img-wrapper'>
+          <div className={styles.imgWrapper}>
             {story.attributes.Media.data.map( img => {
               console.log(img)
               return(
-                <div key={img.id} className='img-container'>
+                <div key={img.id} className={styles.imgContainer}>
                    {img.attributes.mime.includes('video')
                   ?
                     <video 
-                    className='img'
+                    className={styles.img}
                     controls 
                     src={img.attributes.url}
                     />
                   :
                     <img 
-                    className='img'
+                    className={styles.img}
                     src={img.attributes.url}
                     />
                   }
@@ -75,7 +78,9 @@ export default function Homepage() {
           <Link to={`/story/${story.id}`}>Read more</Link>
           {/* <img src={`http://localhost:1337${data.data[index].attributes.media.data[0].attributes.url}`}/> */}
         </div>
+        
       ))}
+      </div>
     </div>
 
   )

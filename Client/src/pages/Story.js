@@ -5,7 +5,7 @@ import axios from 'axios'
 import fileDownload from 'js-file-download'
 import {generateZip, generateZipFromCloud} from '../components/GenerateZip';
 import { useCookies } from 'react-cookie'
-import Style from '../static/Styles/Story.css'
+import '../static/Styles/Story.css'
 
 import Download from '../static/download.png'
 
