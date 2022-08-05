@@ -8,7 +8,7 @@ import './Styles/LoginForm.css'
 import Logo from '../static/logo.png'
 
 const SignIn = () => {
-  const url = 'http://ec2-3-87-173-126.compute-1.amazonaws.com/api/auth/local'
+  const url = 'http://ec2-54-221-55-188.compute-1.amazonaws.com/api/auth/local'
   const {setAuth} = useAuth();
 
   const navigate = useNavigate();

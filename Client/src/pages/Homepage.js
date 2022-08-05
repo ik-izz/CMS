@@ -10,7 +10,7 @@ import styles  from '../static/Styles/homepage.module.css'
 
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-3-87-173-126.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-221-55-188.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
 

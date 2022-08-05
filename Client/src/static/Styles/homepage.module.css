@@ -27,7 +27,7 @@ a {
     text-decoration: none;
     border-bottom: 1px dotted;
   }
-  .storyCard h2 {
+  .storyCard h3 {
     margin-bottom: 0;
   }
   .storyCard small {
@@ -42,20 +42,21 @@ a {
         /* background-color: #ffcc35; */
     /* align-items: center;
     justify-content: center; */
-    overflow: hidden;
+    overflow: auto;
     /* margin-bottom: 10px; */
-    background-color: #d1cecef1;
+    /* background-color: #d1cecef1; */
   }
   .imgContainer{
     position: relative;
         /* margin:20px; */
     object-fit:cover;
+    /* overflow: auto; */
   }
   .img{
     position: relative;
     height: 14rem;
-    box-shadow: 5px 5px 20px black;
-    margin: 0px 1px;
+    /* box-shadow: 5px 5px 20px black;
+    margin: 0px 2px; */
     /* object-fit: cover; */
   }
   .img:hover{
@@ -72,4 +73,21 @@ a {
   .carouselWrapper{
     display: flex;
   }
+  /* width */
+.imgWrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffcc35; 
+  border-radius: 10px;
+}
   
